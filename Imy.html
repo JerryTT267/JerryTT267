@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nhắn gửi yêu thương TT🌻🥰</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f3f4f6;
+            overflow: hidden;
+        }
+        .screen {
+            display: none;
+            width: 100vw;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            align-items: center;
+            justify-content: center;
+            background-size: cover;
+            background-position: center;
+        }
+        .show {
+            display: flex;
+        }
+        /* Màn hình 1 */
+        .screen1 {
+            background-color: #ffebcc;
+            flex-direction: column;
+        }
+        .message-box {
+            background-color: white;
+            border: 2px solid #ff9b9b;
+            padding: 20px;
+            border-radius: 8px;
+            width: 300px;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+        }
+        .message-box h2 {
+            color: #ff6f61;
+        }
+        .message-box img {
+            width: 80px;
+            margin-top: 10px;
+        }
+        .message-box input {
+            margin-top: 10px;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            width: 100%;
+        }
+        .message-box button {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Màn hình 2 */
+        .screen2 {
+            background-image: url('https://i.pinimg.com/736x/28/23/b2/2823b20884245fe8088e30b57a643d75.jpg');
+            position: relative;
+            flex-direction: column;
+        }
+        .bee {
+            width: 100px;
+            animation: beeFly 3s ease-in-out forwards;
+        }
+        .letters {
+            width: 100px;
+            opacity: 0;
+            transform: scale(0);
+            transition: opacity 1s ease, transform 1s ease;
+            cursor: pointer;
+        }
+        .letters.show {
+            opacity: 1;
+            transform: scale(1.6);
+        }
+        @keyframes beeFly {
+            0% { transform: translate(-200px, -100px) scaleX(-1); }
+            100% { transform: translate(0, 0) scaleX(-1); }
+        }
+        
+        /* Màn hình 3 */
+        .screen3 {
+            background-image: url('https://i0.wp.com/thatnhucuocsong.com.vn/wp-content/uploads/2022/01/Hinh-nen-tinh-yeu-1.jpg?ssl=1');
+            flex-direction: column;
+            padding: 3px;
+            align-items: center;
+            overflow-y: auto;
+        }
+        .message-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            border: 2px solid #ff6f61;
+            padding: 15px;
+            border-radius: 10px;
+            width: 85%;
+            max-width: 320px;
+            max-height: 60vh;
+            overflow-y: auto;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+        .screen3 h1 {
+            color: #ff6f61;
+            margin-top: 0;
+        }
+        .screen3 p {
+            font-size: 1.2em;
+            color: #333;
+            line-height: 1.5;
+        }
+
+        /* Mưa trái tim */
+        @keyframes fall {
+            0% {
+                transform: translateY(-100vh);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
+
+        .heart {
+            position: absolute;
+            top: -10px;
+            font-size: 20px;
+            color: #ff6f61;
+            animation: fall linear infinite;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Màn hình 1: Mật khẩu truy cập -->
+    <div class="screen screen1 show">
+        <div class="message-box">
+            <h2>Lời Nhắn Đặc Biệt</h2>
+            <p>Xin chào, có một thông điệp dành cho bạn. Hãy nhập mật khẩu để tiếp tục.</p>
+            <input type="password" placeholder="Nhập mật khẩu" id="password">
+            <button onclick="checkPassword()">Tiếp tục</button>
+            <img src="https://nhanguiyeuthuong.me/wp-content/plugins/ngyt/templates/assets/css/hearts.svg" alt="Cute cat sticker">
+        </div>
+    </div>
+
+    <!-- Màn hình 2: Chú ong và phong thư -->
+    <div class="screen screen2">
+        <img src="https://nhanguiyeuthuong.me/wp-content/plugins/ngyt/templates/assets/css/bee.svg" class="bee" alt="Bee carrying letter">
+        <img src="https://nhanguiyeuthuong.me/wp-content/plugins/ngyt/templates/assets/css/letter.png" class="letters" alt="Letters" onclick="showMessage()">
+    </div>
+
+    <!-- Màn hình 3: Nội dung xin lỗi -->
+    <div class="screen screen3">
+        <div class="message-container">
+            <h1>I love you</h1>
+            <p>Nếu anh có thể cho em một điều trong đời, anh sẽ cho em nhìn thấy chính mình qua đôi mắt của anh. Lúc đó em sẽ biết em tuyệt vời đến mức nào😊. I miss you. I love you. yêu em mặt trời bé nhỏ của anh. 🌻❤️🌞</p>
+        </div>
+    </div>
+
+    <script>
+        function checkPassword() {
+            const password = document.getElementById('password').value;
+            if (password === '2627TT') {
+                document.querySelector('.screen1').classList.remove('show');
+                document.querySelector('.screen2').classList.add('show');
+
+                // Hiển thị phong thư sau khi chú ong đến giữa màn hình
+                setTimeout(() => {
+                    document.querySelector('.letters').classList.add('show');
+                }, 3000); // Hiện phong thư sau khi chú ong dừng
+            } else {
+                alert('Mật khẩu không đúng!');
+            }
+        }
+
+        function showMessage() {
+            const screen2 = document.querySelector('.screen2');
+            screen2.classList.remove('show');
+            screen2.classList.add('fade-out'); // Thêm lớp fade-out để tạo hiệu ứng chuyển cảnh
+            setTimeout(() => {
+                document.querySelector('.screen3').classList.add('show');
+                createHeartRain(); // Gọi hàm tạo mưa trái tim khi chuyển sang màn 3
+            }, 1000); // Thời gian trễ cho hiệu ứng fade-out
+        }
+
+        function createHeartRain() {
+            const screen3 = document.querySelector('.screen3');
+
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.innerText = '❤️';
+
+                // Thiết lập vị trí và tốc độ ngẫu nhiên
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+
+                // Thêm trái tim vào màn hình 3
+                screen3.appendChild(heart);
+
+                // Xóa trái tim khi kết thúc chuyển động
+                heart.addEventListener('animationend', () => {
+                    heart.remove();
+                });
+            }, 300); // Tạo trái tim mới mỗi 300ms
+        }
+    </script>
+
+</body>
+  </html>
